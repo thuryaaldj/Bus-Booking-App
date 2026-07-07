@@ -21,8 +21,8 @@ import { useThemeStore } from "../store/useThemeStore";
 const adminUsernames = ["ronahi", "emilys"];
 const demoUsers = {
   customer: { password: "customer123", role: "customer" },
-  esraa: { password: "customer123", role: "customer" },
-  ronahi: { password: "admin123", role: "admin" },
+  customer2: { password: "customer123", role: "customer" },
+  admin: { password: "admin123", role: "admin" },
 };
 
 const getUserRole = (username) =>
