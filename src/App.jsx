@@ -1,17 +1,20 @@
-import { Routes, Route } from 'react-router-dom';
-import Login from './pages/Login';
-import TripsTemp from './pages/TripsTemp';
+import { Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import TripsTemp from "./pages/TripsTemp";
 import { adminRoutes } from "./router/AdminRoutes";
-import { Toaster } from "react-hot-toast"; 
+import ProtectedRoute from "./router/ProtectedRoute";
+import { Toaster } from "react-hot-toast";
 
 
 function App() {
   return (
     <>
-      <Toaster/>
+      <Toaster />
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/trips" element={<TripsTemp />} />
+        <Route element={<ProtectedRoute allowedRoles={["admin", "customer"]} />}>
+          <Route path="/trips" element={<TripsTemp />} />
+        </Route>
         {adminRoutes}
       </Routes>
     </>

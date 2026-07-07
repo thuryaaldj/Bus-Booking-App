@@ -1,21 +1,16 @@
-import Sidebar from "@/components/admin/Sidebar";
+import Sidebar from "@/components/admin/sidebar";
 import Navbar from "@/components/Navbar";
 import { Outlet } from "react-router-dom";
-import {useThemeStore} from "../store/useThemeStore"
-
-
 
 const AdminLayout = () => {
-  const isDarkMode = useThemeStore((state) => state.isDarkMode);
-  
- return (
-    <div className={isDarkMode ? "dark" : ""}>
-      <div className="flex min-h-screen bg-gray-100 dark:bg-gray-900 transition-colors duration-300">
+  return (
+    <div className="min-h-screen bg-violet-50 text-slate-900 transition-colors duration-300 dark:bg-slate-950 dark:text-slate-100">
+      <div className="flex min-h-screen">
         <Sidebar />
 
-        <div className="flex-1 flex flex-col">
+        <div className="flex min-w-0 flex-1 flex-col">
           <Navbar />
-          <main className="flex-1 p-6 text-gray-900 dark:text-gray-100">
+          <main className="flex-1 overflow-y-auto p-4 md:p-8">
             <Outlet />
           </main>
         </div>

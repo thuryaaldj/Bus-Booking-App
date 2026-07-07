@@ -5,7 +5,6 @@ export function useAuth() {
   const [role, setRole] = useState(() => localStorage.getItem('role') || '')
 
   const login = (newToken, newRole) => {
-    console.log(token, role);
     setToken(newToken)
     setRole(newRole)
     localStorage.setItem('token', newToken)
