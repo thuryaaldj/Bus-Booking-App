@@ -24,6 +24,7 @@ import { Button } from "../components/ui/button";
 import { Input } from "@/components/ui/input";
 import { TRIPS_API } from "@/config/api";
 import { createBooking } from "@/services/bookingsService";
+import { formatPriceDisplay, parsePrice } from "@/utils/formatPrice";
 import { normalizeApiList } from "@/utils/normalizeApiRecord";
 import Navbar from "../components/Navbar";
 
@@ -268,7 +269,7 @@ export default function TripsTemp() {
                 </div>
 
                 <p className="rounded-2xl bg-violet-700 px-4 py-2 font-bold text-white">
-                  ${trip.price}
+                  {formatPriceDisplay(trip.price)}
                 </p>
               </div>
 
@@ -335,7 +336,10 @@ export default function TripsTemp() {
                   <div className="mt-3 flex flex-wrap gap-4 text-sm text-violet-100">
                     <span>Bus #{selectedTrip.busNumber}</span>
                     <span>{formatDate(selectedTrip.date)}</span>
-                    <span>${selectedTrip.price} per seat</span>
+                    <span>
+                      {formatPriceDisplay(selectedTrip.price)}
+                      {parsePrice(selectedTrip.price) != null && " per seat"}
+                    </span>
                   </div>
                 </div>
               </div>

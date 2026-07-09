@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { CalendarDays, MapPin, Ticket, Trash2, UserRound, Users } from "lucide-react";
 import { deleteBooking, fetchBookings } from "@/services/bookingsService";
+import { formatPriceDisplay } from "@/utils/formatPrice";
 
 export default function BookingsList() {
   const [bookings, setBookings] = useState([]);
@@ -133,7 +134,7 @@ export default function BookingsList() {
                       Time: {booking.trip.departureTime || "No time"}
                     </span>
                     <span className="font-semibold text-violet-700 dark:text-violet-200">
-                      ${booking.trip.price || 0}
+                      {formatPriceDisplay(booking.trip.price, "$0")}
                     </span>
                   </div>
                 </div>

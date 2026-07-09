@@ -4,6 +4,7 @@ import { toast } from "react-hot-toast";
 import { BusFront, CalendarDays, Edit3, FilterX, MapPin, Search, Trash2, Users, X } from "lucide-react";
 import { useFilteredTrips } from "@/hooks/useFilteredTrips";
 import { TRIPS_API } from "@/config/api";
+import { formatPriceDisplay } from "@/utils/formatPrice";
 import { normalizeApiList } from "@/utils/normalizeApiRecord";
 
 const formatDate = (value) => {
@@ -238,7 +239,7 @@ export default function TripsList() {
               </div>
 
               <p className="rounded-2xl bg-violet-700 px-4 py-2 font-bold text-white">
-                ${trip.price}
+                {formatPriceDisplay(trip.price)}
               </p>
             </div>
 
