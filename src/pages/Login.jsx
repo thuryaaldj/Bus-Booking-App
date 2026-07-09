@@ -277,7 +277,7 @@ export default function Login() {
 
                 <Alert severity="info" variant="outlined">
                   Customer demo: <strong>customer</strong> / <strong>customer123</strong>.
-                  Admin demo: <strong>ronahi</strong> / <strong>admin123</strong>.
+                  Admin demo: <strong>admin</strong> / <strong>admin123</strong>.
                 </Alert>
               </Stack>
             </CardContent>
